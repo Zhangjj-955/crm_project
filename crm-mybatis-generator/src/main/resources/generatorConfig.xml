@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:/Java_Project/maven_repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar"/>
+    <context id="MysqlTables" targetRuntime="MyBatis3"  defaultModelType="flat">
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8" />
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+        <!--beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，例如：ORACLE使用双引号，MYSQL默认是`反引号； -->
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 数据库链接配置 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/crm?userSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root" password="200538">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 实体类生成未知 -->
+        <javaModelGenerator
+                targetPackage="crm.settings.domain" targetProject="D:/Java_Project/SSM/crm/src/main/java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+            <property name="constructorBased" value="false"/>
+            <property name="immutable" value="false"/>
+        </javaModelGenerator>
+
+        <!-- mapping文件生成位置 -->
+        <sqlMapGenerator targetPackage="crm.settings.mapper" targetProject="D:/Java_Project/SSM/crm/src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- dao接口生成位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="crm.settings.mapper" targetProject="D:/Java_Project/SSM/crm/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- 表配置 tableName 表名 domainObjectName java类名，首字母必须大写，否则报字符串越界错误 -->
+        <table tableName="tbl_user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
+

@@ -1,0 +1,17 @@
+crm\settings\service\UserServiceImpl.class
+crm\commons\contants\Contants.class
+crm\settings\domain\User.class
+crm\commons\Utils\UUIDUtil.class
+crm\workbench\service\ActivityService.class
+crm\commons\domain\ReturnObject.class
+crm\settings\web\controller\UserController.class
+crm\workbench\mapper\ActivityMapper.class
+crm\workbench\service\ActivityServiceImpl.class
+crm\workbench\web\controller\WorkbenchController.class
+crm\settings\mapper\UserMapper.class
+crm\settings\web\interceptor\LoginInterceptor.class
+crm\settings\service\UserService.class
+crm\workbench\web\controller\ActivityController.class
+crm\commons\Utils\DateFormatUtil.class
+crm\web\controller\indexController.class
+crm\workbench\domain\Activity.class
