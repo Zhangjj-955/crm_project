@@ -9,16 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa19fd0f-e606-4310-8482-e404d352699a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SSM.iml" afterDir="false" />
+    <list default="true" id="aa19fd0f-e606-4310-8482-e404d352699a" name="Changes" comment="第一次添加">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +195,7 @@
       <workItem from="1656572283769" duration="1978000" />
       <workItem from="1656574866335" duration="13157000" />
       <workItem from="1656642978470" duration="23153000" />
-      <workItem from="1656756411938" duration="1863000" />
+      <workItem from="1656756411938" duration="3452000" />
     </task>
     <servers />
   </component>
@@ -232,5 +224,9 @@
         <entry key="e9aafd4f-02d4-4e49-bcd7-e8fb1ce8cbdf" value="TOOL_WINDOW" />
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次添加" />
   </component>
 </project>
