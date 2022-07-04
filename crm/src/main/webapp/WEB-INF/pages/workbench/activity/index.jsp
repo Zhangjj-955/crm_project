@@ -10,18 +10,25 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 <link href="jquery/bootstrap_3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="jquery/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="jquery/bs_pagination-master/jquery.bs_pagination.min.css">
 
 <script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
 <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery/bs_pagination-master/jquery.bs_pagination.min.js"></script>
+<script type="text/javascript" src="jquery/bs_pagination-master/localization/en.js"></script>
 <script type="text/javascript" src="jquery/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="jquery/bootstrap-datetimepicker-master/locale/bootstrap-datetimepicker.zh-CN.js"></script>
 
 <script type="text/javascript">
 
 	$(function(){
+
 		$("#createBtn").click(function () {
 			$("#createForm").get(0).reset();
 			$("#createActivityModal").modal("show");
+		});
+		$("#searchByConditionBtn").click(function () {
+			queryActivityByConditionForPage(1,$("#demo_pag1").bs_pagination('getOption','rowsPerPage'));
 		});
 		$("#saveActivity").click(function () {
 			var owner = $("#create-marketActivityOwner").val();
@@ -63,7 +70,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 						alert(data.message);
 					}else {
 						$("#createActivityModal").modal("hide");
-
+						queryActivityByConditionForPage(1,$("#demo_pag1").bs_pagination('getOption','rowsPerPage'));
 					}
 				}
 			});
@@ -77,12 +84,24 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			todayBtn:true,
 			clearBtn:true
 		});
+		queryActivityByConditionForPage(1,3);
+		$("#checkAll").click(function () {
+			$("#ActivityList input[type='checkbox']").prop("checked",this.checked);
+		});
+		$("#ActivityList").on("click","input[type='checkbox']",function () {
+			if ($("#ActivityList input[type='checkbox']").size()==$("#ActivityList input[type='checkbox']:checked").size()){
+				$("#checkAll").prop("checked",true);
+			}else {
+				$("#checkAll").prop("checked",false);
+			}
+		});
+	});
+	function queryActivityByConditionForPage(pageNo,pageSize) {
 		var name = $("#ActivityName").val();
 		var owner = $("#Owner").val();
 		var startDate = $("#startTime").val();
 		var endDate = $("#endTime").val();
-		var pageNo = 1;
-		var pageSize = 10;
+		var htmlStr = "";
 		$.ajax({
 			url: 'workbench/web/controller/queryAllActivity.do',
 			data: {
@@ -96,10 +115,33 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			method:'post',
 			dataType: 'json',
 			success: function (data) {
-
+				$.each(data.activityList,function (index,obj) {
+					htmlStr+="<tr class=\"active\">";
+					htmlStr+="<td><input type=\"checkbox\" value=\""+obj.id+"\"/></td>";
+					htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='detail.html';\">"+obj.name+"</a></td>";
+					htmlStr+="<td>"+obj.owner+"</td>";
+					htmlStr+="<td>"+obj.startdate+"</td>";
+					htmlStr+="<td>"+obj.enddate+"</td></tr>";
+				});
+				$("#checkAll").prop("checked",false);
+				if (data.count%pageSize==0){
+					var totalPage = data.count/pageSize;
+				}else {
+					var totalPage = parseInt(data.count/pageSize)+1;
+				}
+				$("#ActivityList").html(htmlStr);
+				$("#demo_pag1").bs_pagination({
+					totalPages: totalPage,
+					currentPage: pageNo,
+					rowsPerPage: pageSize,
+					// showRowsDefaultInfo: fadlse,
+					onChangePage: function (event,pageObj) {
+						queryActivityByConditionForPage(pageObj.currentPage,pageObj.rowsPerPage);
+					}
+				});
 			}
 		});
-	});
+	}
 	
 </script>
 </head>
@@ -279,8 +321,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				    </div>
 				  </div>
 				  
-				  <button type="submit" class="btn btn-default">查询</button>
-				  
+				  <button type="button" class="btn btn-default" id="searchByConditionBtn">查询</button>
+
+<%--					type是button而不能是submit,submit会刷新页面--%>
+
 				</form>
 			</div>
 			<div class="btn-toolbar" role="toolbar" style="background-color: #F7F7F7; height: 50px; position: relative;top: 5px;">
@@ -289,7 +333,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				  <button type="button" class="btn btn-primary" id="createBtn"><span class="glyphicon glyphicon-plus"></span> 创建</button>
 <%--				  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editActivityModal"><span class="glyphicon glyphicon-pencil"></span> 修改</button>--%>
 				  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> 修改</button>
-				  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> 删除</button>
+				  <button type="button" class="btn btn-danger" id="deleteBtn"><span class="glyphicon glyphicon-minus"></span> 删除</button>
 				</div>
 				
 			</div>
@@ -297,66 +341,54 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				<table class="table table-hover">
 					<thead>
 						<tr style="color: #B3B3B3;">
-							<td><input type="checkbox" /></td>
+							<td><input type="checkbox" id="checkAll"/></td>
 							<td>名称</td>
                             <td>所有者</td>
 							<td>开始日期</td>
 							<td>结束日期</td>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="active">
-							<td><input type="checkbox" /></td>
-							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">发传单</a></td>
-                            <td>zhangsan</td>
-							<td>2020-10-10</td>
-							<td>2020-10-20</td>
-						</tr>
-                        <tr class="active">
-                            <td><input type="checkbox" /></td>
-                            <td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">发传单</a></td>
-                            <td>zhangsan</td>
-                            <td>2020-10-10</td>
-                            <td>2020-10-20</td>
-                        </tr>
+					<tbody id="ActivityList">
 					</tbody>
+
 				</table>
+				<div id="demo_pag1"></div>
 			</div>
-			
-			<div style="height: 50px; position: relative;top: 30px;">
-				<div>
-					<button type="button" class="btn btn-default" style="cursor: default;">共<b>50</b>条记录</button>
-				</div>
-				<div class="btn-group" style="position: relative;top: -34px; left: 110px;">
-					<button type="button" class="btn btn-default" style="cursor: default;">显示</button>
-					<div class="btn-group">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-							10
-							<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">20</a></li>
-							<li><a href="#">30</a></li>
-						</ul>
-					</div>
-					<button type="button" class="btn btn-default" style="cursor: default;">条/页</button>
-				</div>
-				<div style="position: relative;top: -88px; left: 285px;">
-					<nav>
-						<ul class="pagination">
-							<li class="disabled"><a href="#">首页</a></li>
-							<li class="disabled"><a href="#">上一页</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">下一页</a></li>
-							<li class="disabled"><a href="#">末页</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
+
+<%--			<div style="height: 50px; position: relative;top: 30px;">--%>
+<%--				<div>--%>
+<%--					<button type="button" class="btn btn-default" style="cursor: default;">共<b id="recordCount"></b>条记录</button>--%>
+<%--				</div>--%>
+<%--				<div class="btn-group" style="position: relative;top: -34px; left: 110px;">--%>
+<%--					<button type="button" class="btn btn-default" style="cursor: default;">显示</button>--%>
+<%--					<div class="btn-group">--%>
+<%--						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--%>
+<%--							10--%>
+<%--							<span class="caret"></span>--%>
+<%--						</button>--%>
+<%--						<ul class="dropdown-menu" role="menu">--%>
+<%--							<li><a href="#">20</a></li>--%>
+<%--							<li><a href="#">30</a></li>--%>
+<%--						</ul>--%>
+<%--					</div>--%>
+<%--					<button type="button" class="btn btn-default" style="cursor: default;">条/页</button>--%>
+<%--				</div>--%>
+<%--				<div style="position: relative;top: -88px; left: 285px;">--%>
+<%--					<nav>--%>
+<%--						<ul class="pagination">--%>
+<%--							<li class="disabled"><a href="#">首页</a></li>--%>
+<%--							<li class="disabled"><a href="#">上一页</a></li>--%>
+<%--							<li class="active"><a href="#">1</a></li>--%>
+<%--							<li><a href="#">2</a></li>--%>
+<%--							<li><a href="#">3</a></li>--%>
+<%--							<li><a href="#">4</a></li>--%>
+<%--							<li><a href="#">5</a></li>--%>
+<%--							<li><a href="#">下一页</a></li>--%>
+<%--							<li class="disabled"><a href="#">末页</a></li>--%>
+<%--						</ul>--%>
+<%--					</nav>--%>
+<%--				</div>--%>
+<%--			</div>--%>
 			
 		</div>
 		
