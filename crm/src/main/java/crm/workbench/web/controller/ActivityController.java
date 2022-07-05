@@ -60,7 +60,7 @@ public class ActivityController {
         map.put("Owner",owner);
         map.put("startDate",startDate);
         map.put("endDate",endDate);
-        map.put("beginNo",(pageNo-1)*pageSize);
+        map.put("beginNo",pageNo);
         map.put("pageSize",pageSize);
         List<Activity> activityList = activityService.queryActivityByConditionForPage(map);
         int count = activityService.queryActivityNumByConditionForPage(map);
@@ -69,24 +69,5 @@ public class ActivityController {
         result.put("activityList",activityList);
         result.put("count",count);
         return result;
-    }
-    @RequestMapping("/workbench/activity/delete.do")
-    @ResponseBody
-    public Object delete(String[] ids){
-        ReturnObject returnObject = new ReturnObject();
-        try {
-            int result = activityService.deleteById(ids);
-            if (result>0){
-                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
-            }else {
-                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
-                returnObject.setMessage("系统忙");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
-            returnObject.setMessage("系统忙");
-        }
-        return returnObject;
     }
 }

@@ -10,6 +10,4 @@ public interface ActivityMapper {
     List<Activity> selectActivityByConditionForPage(Map<String,Object> map);
 
     int selectActivityCountByConditionForPage(Map<String,Object> map);
-
-    int deleteById(String[] ids);
 }

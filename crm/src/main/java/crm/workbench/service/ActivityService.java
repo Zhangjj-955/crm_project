@@ -10,6 +10,4 @@ public interface ActivityService {
 
     List<Activity> queryActivityByConditionForPage(Map<String,Object> map);
     int queryActivityNumByConditionForPage(Map<String,Object> map);
-
-    int deleteById(String[] ids);
 }
