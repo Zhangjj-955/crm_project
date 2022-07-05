@@ -10,6 +10,7 @@ import crm.workbench.domain.Activity;
 import crm.workbench.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -60,7 +61,7 @@ public class ActivityController {
         map.put("Owner",owner);
         map.put("startDate",startDate);
         map.put("endDate",endDate);
-        map.put("beginNo",pageNo);
+        map.put("beginNo",(pageNo-1)*pageSize);
         map.put("pageSize",pageSize);
         List<Activity> activityList = activityService.queryActivityByConditionForPage(map);
         int count = activityService.queryActivityNumByConditionForPage(map);
@@ -69,5 +70,30 @@ public class ActivityController {
         result.put("activityList",activityList);
         result.put("count",count);
         return result;
+    }
+    @RequestMapping("/workbench/activity/delete.do")
+    @ResponseBody
+    public Object deleteById(@RequestBody String[] ids){
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            int result = activityService.deleteById(ids);
+            if (result>0){
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            }else {
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙");
+        }
+        return returnObject;
+    }
+
+    @RequestMapping("/workbench/activity/queryActivity.do")
+    @ResponseBody
+    public Object queryActivityById(String id){
+        return activityService.queryActivityById(id);
     }
 }

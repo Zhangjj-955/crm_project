@@ -10,7 +10,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa19fd0f-e606-4310-8482-e404d352699a" name="Changes" comment="第一次添加">
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/MIT_LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/bs_pagination.jquery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.bs2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.bs2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/jquery.bs_pagination.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/el.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/en.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/localization/ru.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/jquery/bs_pagination-master/screenshots/sample1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/mapper/ActivityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/mapper/ActivityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/service/ActivityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/service/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/service/ActivityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/web/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/crm/workbench/web/controller/ActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/resources/applicationContext-datasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/resources/applicationContext-datasource.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/applicationContext-datasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/applicationContext-datasource.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/crm/workbench/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/crm/workbench/mapper/ActivityMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/crm/workbench/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/crm/workbench/service/ActivityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/crm/workbench/service/ActivityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/crm/workbench/service/ActivityServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/classes/crm/workbench/web/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/crm/workbench/web/controller/ActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/applicationContext-datasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/applicationContext-datasource.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/mapper/ActivityMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/service/ActivityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/service/ActivityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/service/ActivityServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/web/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/classes/crm/workbench/web/controller/ActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm/WEB-INF/pages/workbench/activity/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +98,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java_Project/SSM/crm/src/main/webapp/WEB-INF&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java_Project/SSM/crm/src/main/webapp/jquery&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;a1d98fdd425054b50331bd80b1530df6&quot;
   },
@@ -72,6 +110,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java_Project\SSM\crm\src\main\webapp\jquery" />
       <recent name="D:\Java_Project\SSM\crm\src\main\webapp\WEB-INF" />
       <recent name="D:\Java_Project\SSM\crm\src\main\webapp" />
       <recent name="D:\Java_Project\SSM\crm\src\main\resources" />
@@ -196,6 +235,7 @@
       <workItem from="1656574866335" duration="13157000" />
       <workItem from="1656642978470" duration="23153000" />
       <workItem from="1656756411938" duration="3452000" />
+      <workItem from="1657025059213" duration="10109000" />
     </task>
     <servers />
   </component>
@@ -207,7 +247,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
         <entry key="e9aafd4f-02d4-4e49-bcd7-e8fb1ce8cbdf">
